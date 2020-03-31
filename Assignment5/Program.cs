@@ -6,7 +6,8 @@ namespace Assignment5
     {
         static void Main(string[] args)
         {
-            
+            UI a = new UI();
+            a.Run();
         }
     }
 }

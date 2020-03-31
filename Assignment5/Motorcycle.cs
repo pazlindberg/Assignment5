@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Assignment5
 {
-    class Motorcycle
+    class Motorcycle : Vehicle
     {
     }
 }
