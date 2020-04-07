@@ -162,7 +162,7 @@ namespace Assignment5
             if (string.IsNullOrEmpty(reg)) reg = "";
             if (string.IsNullOrEmpty(color)) reg = "";
             
-            string wheels;
+            string wheels; //kan inte komma ihåg varför jag gjorde denna till string - möjligen hjärnsläpp
             if (nowheels > 0) wheels = nowheels.ToString();
 
             foreach (var ch in garage)

@@ -18,7 +18,7 @@ namespace Assignment5
         //    return (new Boat(2.3, "abc222", "chocking magenta", 0));
         //}
 
-        public static IEnumerable<Vehicle> GetIteratorVehicles()
+        public static IEnumerable<Vehicle> GetIteratorVehicles() //todo: dubletter härifrån läggs till men vid input kan de ej läggas till (regnr) så ... den checken borde ske på lägre nivå, även om det inte är ett krav
         {
             
             yield return (new Airplane("jjj233", "black", 3, 23.2));

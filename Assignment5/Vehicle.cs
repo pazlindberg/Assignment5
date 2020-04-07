@@ -7,7 +7,6 @@
         public string RegNumber { get; set; }
         public string Color { get; set;  }
         public int NoWheels { get; set; }
-        //idea the specific properties could be of different types or meanings but have the same name also somehow . if time
 
         public Vehicle(string regnumber, string color, int numwheels)
         {
@@ -24,11 +23,5 @@
         }
 
         public virtual string GetSpecific() { return null; }
-        ///// ... public abstract string ToString();
-
-
-        //{
-        //    return $"RegNr: {RegNumber}";
-        //}
     }
 }

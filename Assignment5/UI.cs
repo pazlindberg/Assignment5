@@ -384,7 +384,7 @@ namespace Assignment5
             //Console.Write("top speed"); //motorcycle
 
 
-            if (type == "Airplane")
+            if (type == "Airplane") //jag gillar inte den här specifika koden ..
             {
                 double maxalt = AskForMaxAltitude();
                 toSearch = new Airplane(reg, color, nowheels, maxalt); //todo: add with proper layering
