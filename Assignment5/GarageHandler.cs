@@ -66,9 +66,6 @@ namespace Assignment5
             foreach (var i in Extra.GetIteratorVehicles())
             {
                 string typeToAdd = i.GetType().Name;
-                /*var firstChar = typeToAdd.ElementAt(0);
-                var otherChars = typeToAdd.Substring(1).ToLower();
-                typeToAdd = $"{firstChar.ToString().ToUpper()}{otherChars}";*/
                 typeToAdd = Extra.NormalFormatting(typeToAdd);
 
                 Console.WriteLine(typeToAdd);
@@ -107,7 +104,6 @@ namespace Assignment5
                     }
                 }
             }
-
         }
 
         public int RegLookup(string searchReg)
@@ -115,15 +111,11 @@ namespace Assignment5
             int found = -1;
             int count = 0;
 
-            searchReg = searchReg.ToUpper();
+            searchReg = Extra.CAPITALFormatting(searchReg);
 
             foreach (var ch in garage)
             {
-                if(searchReg.ToUpper()==ch.RegNumber)
-                {
-                    //found = count;
-                    return (count);
-                }
+                if(searchReg==ch.RegNumber) return (count);
                 count++;
             }
             return (found);
@@ -167,7 +159,6 @@ namespace Assignment5
 
             foreach (var ch in garage)
             {
-               
                 string searchType, searchReg, searchColor, searchWheels;
                 
                 if (type == "") searchType = ch.GetType().Name;
@@ -183,7 +174,7 @@ namespace Assignment5
                 else
                 {
                     //todo: formatting
-                    searchWheels = nowheels.ToString();
+                    searchWheels = nowheels.ToString(); //?
                 }
 
                 if((ch.GetType().Name==searchType) &&
@@ -224,11 +215,8 @@ namespace Assignment5
                         lookedUp.Enqueue(forReturn);
                         Console.WriteLine("adding to search-result..." + forReturn.RegNumber);
                     }
-                        
                 }
             }
-            
-
             return lookedUp;
         }
         //public Queue<Vehicle> Lookup(Vehicle toLookup)

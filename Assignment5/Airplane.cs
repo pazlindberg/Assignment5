@@ -11,11 +11,7 @@ namespace Assignment5
         {
             MaxAltitude = maxalt;
         }
-        public override string ToString()
-        {
-            return $"RegNr:\t {RegNumber}";
-        }
-
+   
         public override string GetSpecific()
         {
             string ret;

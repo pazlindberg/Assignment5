@@ -13,11 +13,6 @@ namespace Assignment5
             TopSpeed = topspeed;
         }
 
-        public override string ToString()
-        {
-            throw new NotImplementedException();
-        }
-
         public override string GetSpecific()
         {
             string ret;

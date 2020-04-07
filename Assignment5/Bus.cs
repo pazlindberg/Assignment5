@@ -8,11 +8,9 @@ namespace Assignment5
     {
         public int Passengers { get; set; }
 
-
         public Bus(string reg, string col, int wheels, int passengers) : base(reg, col, wheels)
         {
             Passengers = passengers;
-
         }
 
         public override string ToString()
