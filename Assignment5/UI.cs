@@ -396,7 +396,6 @@ namespace Assignment5
             {
                 var t = searchItems.Dequeue();
                 Console.WriteLine("found: " + t.Color);
-                //searchItems.Dequeue();
             }            
         }
     }   

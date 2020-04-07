@@ -1,6 +1,6 @@
 ﻿namespace Assignment5
 {
-    public class Vehicle
+    public class Vehicle //först gjorde jag den abstrakt men sedan blev det smidigare att köra utan, även om det förmodligen beror på feltänk i design
     {
 
         //private string regNumber;

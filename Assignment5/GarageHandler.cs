@@ -7,9 +7,11 @@ namespace Assignment5
 {
     class GarageHandler
     {
+        public const int sizeOfGarage=64;
+
         public readonly IEnumerable<Type> types = System.Reflection.Assembly.GetExecutingAssembly().GetTypes().Where(x => x.BaseType == typeof(Vehicle));
 
-        public Garage<Vehicle> garage = new Garage<Vehicle>(100);
+        public Garage<Vehicle> garage = new Garage<Vehicle>(sizeOfGarage);
 
         public void ListAll()
         {
@@ -61,7 +63,7 @@ namespace Assignment5
             } 
         }
 
-        public void AddDummys()
+        public void AddDummys() //denna är inte så noga, men den avslöjar ett tankefel med att lägga till poster (dubletter kollas på fel nivå)
         {
             foreach (var i in Extra.GetIteratorVehicles())
             {
@@ -136,6 +138,7 @@ namespace Assignment5
             pos = -1;
             return pos;
         }
+
         public Queue<Vehicle> Lookup(string type, string reg, string color, int nowheels)
         {
             var lookedUp = new Queue<Vehicle>();
