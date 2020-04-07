@@ -17,7 +17,7 @@ namespace Assignment5
         }
     }
 
-    class Menu
+    class Menu //normalt i egna filer mm
     {
         public string Name { get; set; }
         public Dictionary<char, MenuMap> menuOptions = new Dictionary<char, MenuMap>();
@@ -41,8 +41,7 @@ namespace Assignment5
             foreach(var ch in menuOptions.Keys)
             {
                 Console.WriteLine($"{ch} - {menuOptions.GetValueOrDefault(ch).Text}");
-            }
-            
+            }        
         }
     }
 
@@ -59,26 +58,9 @@ namespace Assignment5
                 {'q', new MenuMap("End program", Quit) },
                 {'a', new MenuMap("List all parked", theGarage.ListAll) },
                 {'t', new MenuMap("List types and quantity", theGarage.ListAllTypes)},
-                {'c', new MenuMap("Add/remove vehicles", AddRemove)}, //: +-regnr typ bara blir bra
+                {'c', new MenuMap("Add/remove vehicles", AddRemove)}, 
                 {'s', new MenuMap("Search by reg", SearchReg)},
                 {'p', new MenuMap("Search by propertie(s)", SearchProperties)} //sedan: hantera tomma fält som alla träffar
-
-               
-                /*
-                 * 
-                 * man kanske kan göra något som funkar med alla menyval .. så allt blir typ menyer men får ta det sen eller nåt
-                 * bara jätte-ibland, så tänker jag för mkt
-                 * sen så har sömnen varit under all kritik alla dagar, men senaste 2-3 dagarna börjar det bli ok
-                 * så det blir säkert skitbra
-                 * 
-                 * hoppas nån läser det här
-                 * 
-                 * nej jag får sitta i helgen också .. 
-                 * 
-                 * blev inget i helgen .. behövde nog vila lite eller nåt
-                 */
-
-
             });
 
             theGarage.AddDummys();
@@ -181,9 +163,7 @@ namespace Assignment5
                 return (toReturn);
             }
 
-            double AskForMaxAltitude() //plane [if time, maybe implement this on specific type .. invoke a general ask for in the specific type-
-                                       //class and call base ask- ... whatever
-
+            double AskForMaxAltitude() 
             {
                 double toReturn = -1;
 
@@ -368,6 +348,7 @@ namespace Assignment5
             Console.Write("number of wheels: ");
             string wheels = Console.ReadLine(); //todo: fix checking
             int nowheels = -1;
+            
             if (!string.IsNullOrEmpty(wheels))  //nowheels = Int32.tr(wheels); //todo:  formatting
             {
                 if(!Int32.TryParse(wheels, out nowheels))
@@ -375,14 +356,6 @@ namespace Assignment5
                     Console.WriteLine("unable to parse");
                 }
             }
-
-            //Console.Write("max altitude: "); //plane - todo: maybe an abstract function that handles all specific input
-            //                                    //the same in each derived
-            //Console.Write("weight: "); //boat
-            //Console.Write("max number of passengers: "); //bus
-            //Console.Write("gasoline consumption: "); //car
-            //Console.Write("top speed"); //motorcycle
-
 
             if (type == "Airplane") //jag gillar inte den här specifika koden ..
             {
@@ -412,14 +385,8 @@ namespace Assignment5
             else
             {
                 toSearch = new Vehicle(reg,color,nowheels);
-                /*toSearch.RegNumber = reg;
-                toSearch.Color = color;
-                toSearch.NoWheels = nowheels;*/
-                //return; //todo: fix bool error return
             }
             
-                         //theGarage.Add(toAdd);
-
             var searchItems=new Queue<Vehicle>(theGarage.Lookup(toSearch.GetType().Name,
                 toSearch.RegNumber,
                 toSearch.Color,
@@ -430,17 +397,7 @@ namespace Assignment5
                 var t = searchItems.Dequeue();
                 Console.WriteLine("found: " + t.Color);
                 //searchItems.Dequeue();
-            }
-            
+            }            
         }
-
-
-
-    }
-
-    
+    }   
 }
- 
-//todo:     if time, write a generally usable menu interface that of a key-/value-combination
-//              (char input-key <-> menu option[and delegate, so pref. own defined obj as value]
-

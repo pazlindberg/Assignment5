@@ -12,11 +12,6 @@ namespace Assignment5
             GasolineConsumption = gasconsm;
         }
 
-        public override string ToString()
-        {
-            throw new NotImplementedException();
-        }
-
         public override string GetSpecific()
         {
             string ret;
