@@ -256,13 +256,14 @@ namespace Assignment5
             else Console.WriteLine("invalid, 'a' or 'r'!");
         }
 
-        void Remove()
+        private void Remove()
         {
             Console.Write("\r\nReg number: ");
             string input = Console.ReadLine();
             int pos = theGarage.Lookup(input);
             if (pos>=0) //formatting in called method
             {
+                Console.WriteLine("removing...");
                 theGarage.Remove(pos);
                 //remove position
             }
@@ -271,6 +272,7 @@ namespace Assignment5
                 Console.WriteLine("not found!");
             }
         }
+
             public bool Add()
             {
                 //theGarage.Add();
