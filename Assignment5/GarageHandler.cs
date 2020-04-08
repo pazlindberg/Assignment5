@@ -244,7 +244,7 @@ namespace Assignment5
         //    Console.Write("number of wheels: ");
         //    string wheels = Console.ReadLine(); //todo: fix checking
         //    int nowheels = Int32.Parse(wheels);
-            
+
         //    Console.Write("max altitude: "); //plane - todo: maybe an abstract function that handles all specific input
         //                                        //the same in each derived
         //    Console.Write("weight: "); //boat
@@ -252,7 +252,7 @@ namespace Assignment5
         //    Console.Write("gasoline consumption: "); //car
         //    Console.Write("top speed"); //motorcycle
 
-            
+
         //    if (type == "Airplane")
         //    {
         //        double maxalt = AskForMaxAltitude();
@@ -280,12 +280,12 @@ namespace Assignment5
         //    }
         //    else return; //todo: fix bool error return
         //    //theGarage.Add(toAdd);
-          
+
         //     */
 
 
         //    /*
-            
+
         //    string type = toLookup.GetType().Name;
         //    string regnr = toLookup.RegNumber;
         //    string color = toLookup.Color;
@@ -321,7 +321,7 @@ namespace Assignment5
         //    string searchReg = toLookup.RegNumber;
         //    string searchColor = toLookup.Color;
         //    int searchWheels = toLookup.NoWheels;
-            
+
         //    foreach (var ch in garage)
         //    {
         //        string parkedTyped = ch.GetType().Name;
@@ -334,5 +334,143 @@ namespace Assignment5
         //    }
         //    return (lookedUp);
         //}
+
+        public string AskForType()
+        {
+            Console.Write("\nType (valid types:  ");
+            foreach (var ch in types)
+            {
+                Console.Write($" {ch.Name} ");
+            }
+            Console.Write("): ");
+            string type = Console.ReadLine();
+            type = Extra.NormalFormatting(type);
+
+            //todo: format and check chars
+
+            foreach (var ch in types)
+            {
+                if (type == ch.Name)
+                {
+                    return (type);
+                }
+            }
+            Console.WriteLine("invalid type!");
+            return (null);
+        }
+
+        public string AskForReg()
+        {
+            //todo: formatting and checking
+            Console.Write("\nReg number: ");
+            string regnr = Console.ReadLine();
+            regnr = Extra.CAPITALFormatting(regnr);
+            if (Lookup(regnr) < 0)
+                return (regnr);
+            else return null;
+            //return Extra.CAPITALFormatting(regnr);
+        }
+
+        public string AskForColor()
+        {
+            //todo: formatting and checking
+            Console.Write("\nColor: ");
+            string color = Console.ReadLine();
+            return Extra.CAPITALFormatting(color);
+        }
+
+        public int AskForWheels() //boat
+        {
+            int toReturn;
+            Console.WriteLine("Number of wheels: ");
+            string input = Console.ReadLine();
+            if (Int32.TryParse(input, out toReturn))
+            { }
+            else
+            {
+                Console.WriteLine("erratic number");
+            }
+
+            return (toReturn);
+        }
+
+        public double AskForMaxAltitude()
+        {
+            double toReturn = -1;
+
+            Console.WriteLine("Max altitude: ");
+            string input = Console.ReadLine(); //repeating too much
+            if (Double.TryParse(input, out toReturn))
+            { }
+            else
+            {
+                Console.WriteLine("erratic number");
+            }
+
+            return (toReturn);
+        }
+
+        public double AskForWeight() //boat
+        {
+            double toReturn = -1;
+
+            Console.WriteLine("Weight: ");
+            string input = Console.ReadLine(); //repeating too much
+            if (Double.TryParse(input, out toReturn))
+            { }
+            else
+            {
+                Console.WriteLine("erratic number");
+            }
+            return (toReturn);
+        }
+
+        public int AskForPassengers() //bus
+        {
+
+            int toReturn = -1;
+
+            Console.WriteLine("Passengers: ");
+            string input = Console.ReadLine(); //repeating too much
+            if (Int32.TryParse(input, out toReturn))
+            { }
+            else
+            {
+                Console.WriteLine("erratic number");
+            }
+            return (toReturn);
+        }
+
+        public double AskForGasolineConsumption() //car
+        {
+            double toReturn = -1;
+            Console.WriteLine("Gasoline: ");
+            string input = Console.ReadLine(); //repeating too much
+            if (Double.TryParse(input, out toReturn))
+            { }
+            else
+            {
+                Console.WriteLine("erratic number");
+            }
+            return (toReturn);
+        }
+
+        public double AskForTopSpeed() //motorcycle
+        {
+            double toReturn = -1;
+
+            Console.WriteLine("Top speed: ");
+            string input = Console.ReadLine(); //repeating too much
+            if (Double.TryParse(input, out toReturn))
+            { }
+            else
+            {
+                Console.WriteLine("erratic number");
+            }
+
+            return (toReturn);
+        }
     }
+
+
 }

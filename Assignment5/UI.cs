@@ -4,17 +4,15 @@ using System.Text;
 
 namespace Assignment5
 {
-    
-
     class UI
     {
-        Menu mainMenu;
-        bool running = true;
+        private Menu mainMenu;
+        public bool running = true; //todo: well..
         public GarageHandler theGarage = new GarageHandler();
         
         private void Init()
         {
-            mainMenu = new Menu(Extra.NormalFormatting("main"), new Dictionary<char, MenuMap>   {
+                mainMenu = new Menu(Extra.NormalFormatting("main"), new Dictionary<char, MenuMap>   {
 
                 {'q', new MenuMap("End program", Quit) },
                 {'a', new MenuMap("List all parked", theGarage.ListAll) },
@@ -54,10 +52,6 @@ namespace Assignment5
                         m.ToInvoke.Invoke();
                         return (true);
                     }
-                    else
-                    {
-                        
-                    }
                 }
             }
 
@@ -65,141 +59,141 @@ namespace Assignment5
             else return (true);
         }
 
-            public string AskForType()
-            {
-                Console.Write("\nType (valid types:  ");
-                foreach (var ch in theGarage.types)
-                {
-                    Console.Write($" {ch.Name} ");
-                }
-                Console.Write("): ");
-                string type = Console.ReadLine();
-                type = Extra.NormalFormatting(type);
+            //public string AskForType()
+            //{
+            //    Console.Write("\nType (valid types:  ");
+            //    foreach (var ch in theGarage.types)
+            //    {
+            //        Console.Write($" {ch.Name} ");
+            //    }
+            //    Console.Write("): ");
+            //    string type = Console.ReadLine();
+            //    type = Extra.NormalFormatting(type);
 
-                //todo: format and check chars
+            //    //todo: format and check chars
 
-                foreach (var ch in theGarage.types)
-                {
-                    if (type == ch.Name)
-                    {
-                        return (type);
-                    }
-                }
-                Console.WriteLine("invalid type!");
-                return (null);
-            }
+            //    foreach (var ch in theGarage.types)
+            //    {
+            //        if (type == ch.Name)
+            //        {
+            //            return (type);
+            //        }
+            //    }
+            //    Console.WriteLine("invalid type!");
+            //    return (null);
+            //}
 
-            private string AskForReg()
-            {
-                //todo: formatting and checking
-                Console.Write("\nReg number: ");
-                string regnr = Console.ReadLine();
-                regnr = Extra.CAPITALFormatting(regnr);
-                if (theGarage.Lookup(regnr) < 0)
-                    return (regnr);
-                else return null;
-            //return Extra.CAPITALFormatting(regnr);
-            }
+            //private string AskForReg()
+            //{
+            //    //todo: formatting and checking
+            //    Console.Write("\nReg number: ");
+            //    string regnr = Console.ReadLine();
+            //    regnr = Extra.CAPITALFormatting(regnr);
+            //    if (theGarage.Lookup(regnr) < 0)
+            //        return (regnr);
+            //    else return null;
+            ////return Extra.CAPITALFormatting(regnr);
+            //}
 
-            private string AskForColor()
-            {
-                //todo: formatting and checking
-                Console.Write("\nColor: ");
-                string color = Console.ReadLine();
-                return Extra.CAPITALFormatting(color);
-            }
+            //private string AskForColor()
+            //{
+            //    //todo: formatting and checking
+            //    Console.Write("\nColor: ");
+            //    string color = Console.ReadLine();
+            //    return Extra.CAPITALFormatting(color);
+            //}
 
-            int AskForWheels() //boat
-            {
-                int toReturn;
-                Console.WriteLine("Number of wheels: ");
-                string input = Console.ReadLine();
-                if (Int32.TryParse(input, out toReturn))
-                { }
-                else
-                {
-                    Console.WriteLine("erratic number");
-                }
+            //int AskForWheels() //boat
+            //{
+            //    int toReturn;
+            //    Console.WriteLine("Number of wheels: ");
+            //    string input = Console.ReadLine();
+            //    if (Int32.TryParse(input, out toReturn))
+            //    { }
+            //    else
+            //    {
+            //        Console.WriteLine("erratic number");
+            //    }
 
-                return (toReturn);
-            }
+            //    return (toReturn);
+            //}
 
-            double AskForMaxAltitude() 
-            {
-                double toReturn = -1;
+            //double AskForMaxAltitude() 
+            //{
+            //    double toReturn = -1;
 
-                Console.WriteLine("Max altitude: ");
-                string input = Console.ReadLine(); //repeating too much
-                if (Double.TryParse(input, out toReturn))
-                { }
-                else
-                {
-                    Console.WriteLine("erratic number");
-                }
+            //    Console.WriteLine("Max altitude: ");
+            //    string input = Console.ReadLine(); //repeating too much
+            //    if (Double.TryParse(input, out toReturn))
+            //    { }
+            //    else
+            //    {
+            //        Console.WriteLine("erratic number");
+            //    }
 
-                return (toReturn);
-            }
+            //    return (toReturn);
+            //}
 
-            double AskForWeight() //boat
-            {
-                double toReturn = -1;
+            //double AskForWeight() //boat
+            //{
+            //    double toReturn = -1;
 
-                Console.WriteLine("Weight: ");
-                string input = Console.ReadLine(); //repeating too much
-                if (Double.TryParse(input, out toReturn))
-                { }
-                else
-                {
-                    Console.WriteLine("erratic number");
-                }
-                return (toReturn);
-            }
+            //    Console.WriteLine("Weight: ");
+            //    string input = Console.ReadLine(); //repeating too much
+            //    if (Double.TryParse(input, out toReturn))
+            //    { }
+            //    else
+            //    {
+            //        Console.WriteLine("erratic number");
+            //    }
+            //    return (toReturn);
+            //}
 
-            int AskForPassengers() //bus
-            {
+            //int AskForPassengers() //bus
+            //{
 
-                int toReturn = -1;
+            //    int toReturn = -1;
 
-                Console.WriteLine("Passengers: ");
-                string input = Console.ReadLine(); //repeating too much
-                if (Int32.TryParse(input, out toReturn))
-                { }
-                else
-                {
-                    Console.WriteLine("erratic number");
-                }
-                return (toReturn);
-            }
+            //    Console.WriteLine("Passengers: ");
+            //    string input = Console.ReadLine(); //repeating too much
+            //    if (Int32.TryParse(input, out toReturn))
+            //    { }
+            //    else
+            //    {
+            //        Console.WriteLine("erratic number");
+            //    }
+            //    return (toReturn);
+            //}
 
-            double AskForGasolineConsumption() //car
-            {
-                double toReturn = -1;
-                Console.WriteLine("Gasoline: ");
-                string input = Console.ReadLine(); //repeating too much
-                if (Double.TryParse(input, out toReturn))
-                { }
-                else
-                {
-                    Console.WriteLine("erratic number");
-                }
-                return (toReturn);
-            }
+            //double AskForGasolineConsumption() //car
+            //{
+            //    double toReturn = -1;
+            //    Console.WriteLine("Gasoline: ");
+            //    string input = Console.ReadLine(); //repeating too much
+            //    if (Double.TryParse(input, out toReturn))
+            //    { }
+            //    else
+            //    {
+            //        Console.WriteLine("erratic number");
+            //    }
+            //    return (toReturn);
+            //}
 
-            double AskForTopSpeed() //motorcycle
-            {
-                double toReturn = -1;
+            //double AskForTopSpeed() //motorcycle
+            //{
+            //    double toReturn = -1;
 
-                Console.WriteLine("Top speed: ");
-                string input = Console.ReadLine(); //repeating too much
-                if (Double.TryParse(input, out toReturn))
-                { }
-                else
-                {
-                    Console.WriteLine("erratic number");
-                }
+            //    Console.WriteLine("Top speed: ");
+            //    string input = Console.ReadLine(); //repeating too much
+            //    if (Double.TryParse(input, out toReturn))
+            //    { }
+            //    else
+            //    {
+            //        Console.WriteLine("erratic number");
+            //    }
 
-                return (toReturn);
-            }
+            //    return (toReturn);
+            //}
 
         void AddRemove()
         {
@@ -237,45 +231,45 @@ namespace Assignment5
             private bool Add()
             {
                 //theGarage.Add();
-                string type = AskForType();
+                string type = theGarage.AskForType();
                 if (string.IsNullOrEmpty(type))
                 {
                     Console.WriteLine("write correct type next time!");
                     return (false);
                 }
-                string reg = AskForReg();
+                string reg = theGarage.AskForReg();
                 if(reg==null)
                 {
                     Console.WriteLine("already exists!");
                     return false;
                 }
-                string color = AskForColor();
-                int nowheels = AskForWheels();
+                string color = theGarage.AskForColor();
+                int nowheels = theGarage.AskForWheels();
 
                 Vehicle toAdd;
                 if (type == "Airplane")
                 {
-                    double maxalt = AskForMaxAltitude();
+                    double maxalt = theGarage.AskForMaxAltitude();
                     toAdd = new Airplane(reg, color, nowheels, maxalt); //todo: add with proper layering
                 }
                 else if (type == "Boat")
                 {
-                    double weight = AskForWeight();
+                    double weight = theGarage.AskForWeight();
                     toAdd = new Boat(reg, color, nowheels, weight);
                 }
                 else if (type == "Bus")
                 {
-                    int passengers = AskForPassengers();
+                    int passengers = theGarage.AskForPassengers();
                     toAdd = new Bus(reg, color, nowheels, passengers);
                 }
                 else if (type == "Car")
                 {
-                    double gasolineconsumption = AskForGasolineConsumption();
+                    double gasolineconsumption = theGarage.AskForGasolineConsumption();
                     toAdd = new Car(reg, color, nowheels, gasolineconsumption);
                 }
                 else if (type == "Motorcycle")
                 {
-                    double topspeed = AskForTopSpeed();
+                    double topspeed = theGarage.AskForTopSpeed();
                     toAdd = new Motorcycle(reg, color, nowheels, topspeed);
                 }
                 else return(false); //todo: fix bool error return
@@ -322,27 +316,27 @@ namespace Assignment5
 
             if (type == "Airplane") //jag gillar inte den här specifika koden ..
             {
-                double maxalt = AskForMaxAltitude();
+                double maxalt = theGarage.AskForMaxAltitude();
                 toSearch = new Airplane(reg, color, nowheels, maxalt); //todo: add with proper layering
             }
             else if (type == "Boat")
             {
-                double weight = AskForWeight();
+                double weight = theGarage.AskForWeight();
                 toSearch = new Boat(reg, color, nowheels, weight);
             }
             else if (type == "Bus")
             {
-                int passengers = AskForPassengers();
+                int passengers = theGarage.AskForPassengers();
                 toSearch = new Bus(reg, color, nowheels, passengers);
             }
             else if (type == "Car")
             {
-                double gasolineconsumption = AskForGasolineConsumption();
+                double gasolineconsumption = theGarage.AskForGasolineConsumption();
                 toSearch = new Car(reg, color, nowheels, gasolineconsumption);
             }
             else if (type == "Motorcycle")
             {
-                double topspeed = AskForTopSpeed();
+                double topspeed = theGarage.AskForTopSpeed();
                 toSearch = new Motorcycle(reg, color, nowheels, topspeed);
             }
             else
