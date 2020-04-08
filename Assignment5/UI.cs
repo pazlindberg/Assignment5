@@ -263,7 +263,7 @@ namespace Assignment5
             int pos = theGarage.Lookup(input);
             if (pos>=0) //formatting in called method
             {
-                theGarage.garage.Remove(pos);
+                theGarage.Remove(pos);
                 //remove position
             }
             else

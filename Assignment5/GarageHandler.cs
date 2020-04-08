@@ -11,7 +11,7 @@ namespace Assignment5
 
         public readonly IEnumerable<Type> types = System.Reflection.Assembly.GetExecutingAssembly().GetTypes().Where(x => x.BaseType == typeof(Vehicle));
 
-        public Garage<Vehicle> garage = new Garage<Vehicle>(sizeOfGarage);
+        private Garage<Vehicle> garage = new Garage<Vehicle>(sizeOfGarage);
 
         public void ListAll()
         {
@@ -27,6 +27,11 @@ namespace Assignment5
                 toPrint += $" specific proterty: {ch.GetSpecific()}"; //todo: bättre output så man fattar vilken egenskap det rör sig om, men det är nog rätt oviktigt i denna övning
                 Console.WriteLine(toPrint);
             }
+        }
+
+        public void Remove(int pos)
+        {
+            garage.Remove(pos);
         }
 
         public void ListAllTypes()
